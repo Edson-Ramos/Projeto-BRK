@@ -1,3 +1,3 @@
-from .usuario_service import login
+from .usuario_service import login, cadastrar_usuario
 
-__all__=['login']
+__all__=['login','cadastrar_usuario']

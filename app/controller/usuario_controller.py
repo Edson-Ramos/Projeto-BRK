@@ -1,5 +1,7 @@
+from distutils.log import error
 from flask import render_template, Response
 from flask.globals import request
+from loguru import logger
 from service import *
 
 def conf_usuario(app):
@@ -13,7 +15,29 @@ def conf_usuario(app):
         signin = dados['login']
         senha = dados['senha']
         token = login(signin, senha)
+        logger.debug(signin)
+        logger.debug(senha)
         if token:
             return {'access_token': token}
         else:
             return Response("Login ou senha inválidos", status=500)
+
+    @app.route("/login", methods=['PUT'])
+    def cadastro_usuario_put():
+        try:
+            dados = request.get_json()
+            nome = dados['nome']
+            email = dados['email']
+            data_nasc = dados['data_nasc']
+            tel = dados['tel']
+            login = dados['login']
+            senha = dados['senha']
+            error = cadastrar_usuario(nome, email, data_nasc, tel, login, senha)
+            if error:
+                return Response(error, status=500)
+            
+            return "Usuário cadastrado com sucesso!"
+        except Exception as e:
+            logger.error
+
+        
