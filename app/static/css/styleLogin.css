@@ -142,6 +142,7 @@ body{
     border: none;
     background-color: #F5F5F5;
     width: 100%;
+    text-align: center;
 }
 
 .input-label{

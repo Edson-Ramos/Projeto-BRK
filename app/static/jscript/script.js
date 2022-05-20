@@ -33,7 +33,7 @@ function login(){
              alerta_erro()
     }).then((data) =>{
         localStorage.setItem('Token', data.access_token)
-        return window.location.href = "cadastrar_veiculos"
+        return window.location.href = "cadastrar_automovel"
     })
 
 }

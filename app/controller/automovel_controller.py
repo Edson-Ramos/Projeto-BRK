@@ -6,7 +6,7 @@ from service import *
 def conf_automovel(app):
     @app.route("/cadastrar_automovel")
     def cadastro_auto():
-        return "ok" #render_template('cadastro_automovel.html')
+        return render_template('cad_auto.html')
 
     @app.route('/cadastrar_auto', methods=['POST'])
     def cadastrar_automovel_post():
