@@ -26,3 +26,7 @@ def conf_automovel(app):
         except Exception as error:
             logger.error(error)
 
+    @app.route('/visualizar_automovel', methods=['GET'])
+    def visualizar_automovel_get():
+        retorno = listar_automovel()
+        return retorno

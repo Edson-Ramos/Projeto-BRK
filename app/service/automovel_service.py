@@ -13,3 +13,22 @@ def cadastrar_automovel(id_usuario:str, ano_fab:str, placa:str, modelo:str, cor:
     except Exception as error:
         logger.error(error)
 
+def listar_automovel():
+    retorno = {'files':[]}
+    for auto in read_automovel():
+        id = auto.get_id()
+        id_usuario = auto.get_id_usuario()
+        ano_fab = auto.get_ano_fab()
+        placa = auto.get_placa()
+        modelo = auto.get_modelo()
+        cor = auto.get_cor()
+
+        file = {'id':id,
+                'id_usuario': id_usuario,
+                'ano_fab': ano_fab,
+                'placa': placa,
+                'modelo': modelo,
+                'cor': cor
+        }
+        retorno['files'].append(file)        
+    return retorno

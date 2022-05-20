@@ -1,4 +1,3 @@
-from enum import auto
 from loguru import logger
 from utils import mysql_connection
 from model import Automovel
@@ -32,3 +31,18 @@ def insert_automovel(automovel: Automovel):
     except Exception as error:
         logger.error(error)
 
+def read_automovel():
+        try:
+            sql_query = "SELECT * FROM automovel"
+            cursor.execute(sql_query)
+            result = cursor.fetchall()
+            retorno = []
+            for auto in result:
+                automovel = Automovel(auto[0], auto[1], auto[2], auto[3], auto[4], auto[5])
+                retorno.append(automovel)
+            return retorno
+        except connection.connector.Error as error:
+            connection.rollback()
+            logger.error("Falha ao carregar a lista de usuários")
+        except Exception as error:
+            logger.error(error)
