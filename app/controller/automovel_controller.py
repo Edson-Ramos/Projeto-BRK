@@ -26,6 +26,10 @@ def conf_automovel(app):
         except Exception as error:
             logger.error(error)
 
+    @app.route("/show_room")
+    def show_room():
+        return render_template('listar_auto.html')
+        
     @app.route('/visualizar_automovel', methods=['GET'])
     def visualizar_automovel_get():
         retorno = listar_automovel()

@@ -95,5 +95,5 @@ function alerta_erro(msg){
 } 
 
 function load(){
-    window.location.href = "/listar_auto)";
+    window.location.href = "/show_room";
 }

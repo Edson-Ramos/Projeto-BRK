@@ -4,9 +4,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../static/css/style_list.css">
     <title>Show Room</title>
 </head>
-<body>
-    
+<body onload="get_auto()">
+    <div class="container">
+        <section id="equipamentos">
+            <div class="container-fluid">
+
+                <table class="table table-striped">
+                    <div class="titulo">
+                        <h1 class="title">Show Room</h1>
+                    </div>
+
+                    <thead>
+                        <tr>
+                            <th class="lista" scope="col">Ano de Fab.</th>
+                            <th class="lista" scope="col">Placa</th>
+                            <th class="lista" scope="col">modelo</th>
+                            <th class="lista" scope="col">cor</th>
+                        </tr>
+                    </thead>
+                    <div>
+                        <tbody id="tbody"></tbody>
+                    </div>
+                </table>
+            </div>
+        </section>
+    </div>
 </body>
+<footer>
+    <script src="../static/jscript/script_list.js"></script>
+    <script src="../static/jscript/sweetalert.js"></script>
+</footer>
 </html>
