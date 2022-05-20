@@ -13,7 +13,7 @@ btnsignup.addEventListener("click", function(){
 function login(){
     let login = document.getElementById("login").value
     let senha = document.getElementById("password").value
-    console.log(login, senha)
+    
     let dados_login = {
         login : login,
         senha : senha
@@ -117,9 +117,9 @@ function erro_Campo_empty(){
                 title: 'Opss...',
                 text: 'Todos os Campos São Obrigatório!'
             })  
-    }
+}
 
-    function erro_cadastro(msg){
+function erro_cadastro(msg){
     Swal.fire({
         icon: 'error',
         title: 'Algo deu Errado!',

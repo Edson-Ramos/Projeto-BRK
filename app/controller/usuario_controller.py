@@ -1,4 +1,3 @@
-from distutils.log import error
 from flask import render_template, Response
 from flask.globals import request
 from loguru import logger
@@ -15,8 +14,7 @@ def conf_usuario(app):
         signin = dados['login']
         senha = dados['senha']
         token = login(signin, senha)
-        logger.debug(signin)
-        logger.debug(senha)
+        
         if token:
             return {'access_token': token}
         else:
@@ -40,4 +38,4 @@ def conf_usuario(app):
         except Exception as e:
             logger.error
 
-        
+    

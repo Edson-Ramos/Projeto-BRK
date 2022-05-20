@@ -26,6 +26,7 @@ app.config['JWT_ACCESS_TOKEN_EXPIRES'] = datetime.timedelta(minutes=60)
 jwt = JWTManager(app)
 
 conf_usuario(app)
+conf_automovel(app)
 
 
 if __name__ == "__main__":
