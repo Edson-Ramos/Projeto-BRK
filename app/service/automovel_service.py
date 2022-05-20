@@ -32,3 +32,11 @@ def listar_automovel():
         }
         retorno['files'].append(file)        
     return retorno
+    
+def atualizar_automovel(id:str, id_usuario:str, ano_fab:str, placa:str, modelo:str, cor:str):
+    try:
+        automovel = Automovel(id=id, id_usuario=id_usuario, ano_fab=ano_fab, placa=placa, modelo=modelo, cor=cor)
+        update_automovel(automovel)
+        return None
+    except Exception as error:
+        logger.error(error)

@@ -30,3 +30,21 @@ def conf_automovel(app):
     def visualizar_automovel_get():
         retorno = listar_automovel()
         return retorno
+
+    @app.route('/atualizar_automovel', methods=['POST'])
+    def atualizar_auto_post():        
+        try:            
+            dados = request.get_json()
+            id = dados['id']
+            id_usuario = dados['id_usuario']
+            ano_fab = dados['ano_fab']
+            placa = dados['placa']
+            modelo = dados['modelo']
+            cor = dados['cor']
+            error = atualizar_automovel(id, id_usuario, ano_fab, placa, modelo, cor)            
+            if error:
+                return Response(error, status=500)
+            else:
+                return "Automovel Alterado"
+        except Exception as error:
+            logger.error(error)

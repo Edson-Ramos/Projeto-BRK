@@ -46,3 +46,16 @@ def read_automovel():
             logger.error("Falha ao carregar a lista de usuários")
         except Exception as error:
             logger.error(error)
+
+def update_automovel(automovel: Automovel):
+    try:
+        sql_query = """UPDATE `automovel` SET id_usuario=%s, ano_fab=%s, placa=%s, modelo=%s, cor=%s WHERE id = %s;"""
+        tuple = (automovel.get_id_usuario(), automovel.get_ano_fab(), automovel.get_placa(), automovel.get_modelo(), automovel.get_cor(), automovel.get_id())
+        cursor.execute(sql_query,tuple)
+        connection.commit()
+        logger.debug("O Registro foi atualizado com sucesso!")
+    except connection.connector.Error as error:
+        connection.rollback()
+        logger.error("Falha ao atualizar registro de usuário no banco de dados!")
+    except Exception as error:
+        logger.error(error)
