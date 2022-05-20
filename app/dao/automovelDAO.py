@@ -59,3 +59,16 @@ def update_automovel(automovel: Automovel):
         logger.error("Falha ao atualizar registro de usuário no banco de dados!")
     except Exception as error:
         logger.error(error)
+
+def del_automovel(automovel: Automovel):
+    try:
+        sql_query = """DELETE FROM `automovel` WHERE id = %s;"""%automovel.get_id()
+        id_get = automovel.get_id()		
+        cursor.execute(sql_query)		
+        connection.commit()
+        logger.debug( "Id: ", id_get, " Excluido com Sucesso!")
+    except connection.connector.Error as error:
+        connection.rollback()
+        logger.error("Falha ao deletar registro da base de dados!")
+    except Exception as error:
+        logger.error(error)

@@ -48,3 +48,17 @@ def conf_automovel(app):
                 return "Automovel Alterado"
         except Exception as error:
             logger.error(error)
+
+    @app.route('/delete_automovel', methods=['POST'])
+    def delete_auto_post():
+        try:
+            dados = request.get_json()
+            id = dados['id']
+            error = deletar_automovel(id)
+
+            if error:
+                return Response(error, status=500)
+            else:
+                return "Automovel Excluido"
+        except Exception as error:
+            logger.error(error)

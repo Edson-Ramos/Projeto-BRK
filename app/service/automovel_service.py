@@ -40,3 +40,11 @@ def atualizar_automovel(id:str, id_usuario:str, ano_fab:str, placa:str, modelo:s
         return None
     except Exception as error:
         logger.error(error)
+
+def deletar_automovel(id:str):
+    try:
+        automovel = Automovel(id=id)
+        del_automovel(automovel)
+        return None
+    except Exception as error:
+        logger.error(error)
