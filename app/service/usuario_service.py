@@ -1,3 +1,4 @@
+from traceback import print_tb
 from loguru import logger
 from model import Usuario
 from dao import *
@@ -11,10 +12,13 @@ def login(login: str, senha: str):
     for usuario in get_usuario_by_login(usuario_consulta):
         login_db = usuario.get_login()
         senha_db = usuario.get_senha()
+        id_db = usuario.get_id()
 
         if (login == login_db and senha == senha_db):
             access_token = create_access_token(identity=login)
-            return access_token
+            token = {'access_token':access_token,
+                    'id': id_db}
+            return token
     return None
     
 def cadastrar_usuario(nome: str, email: str, data_nasc: str, tel: str, login: str, senha: str):

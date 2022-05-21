@@ -32,7 +32,11 @@ function login(){
         }else
              alerta_erro()
     }).then((data) =>{
-        localStorage.setItem('Token', data.access_token)
+            localStorage.removeItem("id_usuario")
+            localStorage.removeItem("token")
+            localStorage.removeItem("id")
+            localStorage.setItem('token', data.access_token)
+            localStorage.setItem('id_usuario', data.id)
         return window.location.href = "cadastrar_automovel"
     })
 

@@ -16,7 +16,7 @@ def conf_usuario(app):
         token = login(signin, senha)
         
         if token:
-            return {'access_token': token}
+            return token
         else:
             return Response("Login ou senha inválidos", status=500)
 

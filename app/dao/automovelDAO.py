@@ -18,6 +18,19 @@ def get_automovel_by_placa(automovel: Automovel):
     except Exception as error:
         logger.error(error)
 
+def get_automovel_by_usuario(automovel: Automovel):
+    try:
+        sql_query = """SELECT * FROM `automovel` WHERE id_usuario = %s;"""%automovel.get_id_usuario()
+        cursor.execute(sql_query)
+        result = cursor.fetchall()
+        retorno = []
+        for auto in result:
+            automovel = Automovel(auto[0], auto[1], auto[2], auto[3], auto[4], auto[5])
+            retorno.append(automovel)
+        return retorno
+    except Exception as error:
+        logger.error(error)
+
 def insert_automovel(automovel: Automovel):
     try:
         sql_query = """INSERT INTO `automovel`(id_usuario, ano_fab, placa, modelo, cor) VALUES (%s,%s,%s,%s,%s)"""
@@ -70,5 +83,19 @@ def del_automovel(automovel: Automovel):
     except connection.connector.Error as error:
         connection.rollback()
         logger.error("Falha ao deletar registro da base de dados!")
+    except Exception as error:
+        logger.error(error)
+
+def get_automovel_by_id(automovel: Automovel):
+    try:
+        
+        sql_query = """SELECT * FROM `automovel` WHERE id = %s;"""%automovel.get_id()
+        cursor.execute(sql_query)
+        result = cursor.fetchall()
+        retorno = []
+        for auto in result:
+            automovel = Automovel(auto[0], auto[1], auto[2], auto[3], auto[4], auto[5])
+            retorno.append(automovel)
+        return retorno
     except Exception as error:
         logger.error(error)

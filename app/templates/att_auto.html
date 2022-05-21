@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/93e0484d74.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="../static/css/styleCad.css">
+
+    <title>Atualização do Automovél</title>
+</head>
+<body onload="get_auto()">
+    <div class="container">
+        <div class="content">
+        <div class="column">
+                 <h2 class="title">Sua Garagem</h2>
+                <p class="description">Preencha com as informações do seu automovél</p>
+                <form class="form">
+                    <label class="input-label">
+                        <i title="Ano de Fabricação" class="bi bi-calendar2-date icon-modify"></i>
+                        <input type="text" id="ano_fab" class="ano_fab" placeholder="Ano Fabricação" required>   
+                    </label>
+                    <label for="" class="input-label">
+                        <i title="Placa" class="bi bi-postcard icon-modify"></i>
+                        <input type="text" id="placa" class="placa" placeholder="Placa" required>  
+                    </label>        
+                    <label for="" class="input-label">                       
+                        <i title="Modelo" class="fa-solid fa-car icon-modify"></i>
+                        <input type="text" id="modelo" class="modelo" placeholder="Modelo"required>
+                    </label> 
+                    <label for="" class="input-label">
+                        <i title="Cor" class="bi bi-palette icon-modify"></i>
+                        <input type="text" id="cor" class="cor" placeholder="Cor do Automovél" required>
+                    </label>                    
+                </form>
+                <div class="div-btn">
+                    <button class="btn btn-primary" onclick="atualizar()">Alualizar</button>
+                </div>
+                
+            </div><!--finish second column -->
+            </div><!-- finish content cadastro -->
+            </div>
+    </div>
+</body>
+<footer>
+    <script src="../static/jscript/script_att.js"></script>
+    <script src="../static/jscript/sweetalert.js"></script>
+</footer>
+</html>

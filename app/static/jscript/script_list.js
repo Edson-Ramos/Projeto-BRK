@@ -1,19 +1,30 @@
 const rota = 'http://localhost:5000'
 
 function get_auto(){
+    let id_usuario ={
+        id_usuario : JSON.parse(localStorage.getItem("id_usuario"))
+    }
+   
 
-    fetch(`${rota}/visualizar_automovel`)
-        .then(data => {
-            return data.json()
-        })
-        .then(data => {
-            for (file of data.files)
-                create_list(file)
-        })
-        .then(data =>{
-            del_auto()
-            att_auto()
-        })
+    const dados_usuario = {
+        method: "POST",
+        body: JSON.stringify(id_usuario),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }
+    fetch(`${rota}/show_room_usuario`, dados_usuario)
+       .then(function(response){
+           response.json()
+           .then(function(data){
+               for (file of data.files)
+               create_list(file)
+           })
+           .then(data=>{
+               att_auto()
+               del_auto()
+           })
+       })
 }
 
 function create_list(file){
@@ -43,7 +54,7 @@ function create_list(file){
     btn_del.className = "btn btn-default btn-del"
     btn_del.id = `${file.id}`
     btn_del.title = "Excluir"
-    btn_del.style.background = "#FF4A4A"
+    btn_del.style.background = "#FF7373"
     let del_icon = document.createElement("img")
     del_icon.src = "static/icon/trash-fill.svg"
 
@@ -52,7 +63,7 @@ function create_list(file){
     btn_att.className = "btn btn-default btn-att"
     btn_att.id = `${file.id}`
     btn_att.title = "Atualizar"
-    btn_att.style.background = "#416EFF"
+    btn_att.style.background = "#738FFF"
     let att_icon = document.createElement("img")
     att_icon.src = "static/icon/pencil-square.svg"
 
@@ -71,11 +82,11 @@ function create_list(file){
 function att_auto(){
     //Pesquisa de botão de atualizar e captura do evento de click
 
-document.querySelectorAll(".btnAtt").forEach(function (btnAtt) {
-   btnAtt.addEventListener("click", (e) => {
-       id_auto = btnAtt.id
-       sessionStorage.setItem('chave', id_auto );   
-       window.location.href = "atualizar_servico"
+document.querySelectorAll(".btn-att").forEach(function (btn_att) {
+   btn_att.addEventListener("click", (e) => {
+       id_auto = btn_att.id
+       localStorage.setItem('id', id_auto );   
+       window.location.href = "att_auto"
       
 
    })

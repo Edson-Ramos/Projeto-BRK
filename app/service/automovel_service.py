@@ -48,3 +48,45 @@ def deletar_automovel(id:str):
         return None
     except Exception as error:
         logger.error(error)
+
+def list_auto_by_usuario(id_usuario:str):
+    retorno = {'files':[]}
+    automovel = Automovel(id_usuario=id_usuario)
+    for auto in get_automovel_by_usuario(automovel):
+        id = auto.get_id()
+        id_usuario = auto.get_id_usuario()
+        ano_fab = auto.get_ano_fab()
+        placa = auto.get_placa()
+        modelo = auto.get_modelo()
+        cor = auto.get_cor()
+
+        file = {'id':id,
+                'id_usuario': id_usuario,
+                'ano_fab': ano_fab,
+                'placa': placa,
+                'modelo': modelo,
+                'cor': cor
+        }
+        retorno['files'].append(file)        
+    return retorno
+
+def list_auto_by_id(id:str):
+    retorno = {'files':[]}
+    automovel = Automovel(id=id)
+    for auto in get_automovel_by_id(automovel):
+        id = auto.get_id()
+        id_usuario = auto.get_id_usuario()
+        ano_fab = auto.get_ano_fab()
+        placa = auto.get_placa()
+        modelo = auto.get_modelo()
+        cor = auto.get_cor()
+
+        file = {'id':id,
+                'id_usuario': id_usuario,
+                'ano_fab': ano_fab,
+                'placa': placa,
+                'modelo': modelo,
+                'cor': cor
+        }
+        retorno['files'].append(file)        
+    return retorno

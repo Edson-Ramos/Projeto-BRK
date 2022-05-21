@@ -14,7 +14,11 @@ body{
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: rgb(170, 170, 169);
+    background-color:  rgb(170, 170, 169);
+}
+.content{
+    background-color: aliceblue;
+    border-radius: 25px;
 }
 /*Área titulos*/
 .title{
@@ -31,7 +35,8 @@ body{
     text-align: center;
 }
 .container-fluid{
-    margin-top: 100px;
+    margin-top: 20px;
     justify-content: center;
+    align-items: center;
 }
 
