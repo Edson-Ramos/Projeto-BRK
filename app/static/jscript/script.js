@@ -35,8 +35,10 @@ function login(){
             localStorage.removeItem("id_usuario")
             localStorage.removeItem("token")
             localStorage.removeItem("id")
+            localStorage.removeItem("nome")
             localStorage.setItem('token', data.access_token)
             localStorage.setItem('id_usuario', data.id)
+            localStorage.setItem('nome', data.nome)
         return window.location.href = "cadastrar_automovel"
     })
 
@@ -135,3 +137,20 @@ function erro_cadastro(msg){
         })
     })
 } 
+
+function apresentacao(){
+    let nomeTitulo = localStorage.getItem("nome")
+    let welcome = document.querySelector(".welcome")
+    let nomeCli = document.querySelector(".nomeCli")
+    
+    let bemVindo = document.createElement("output")
+    bemVindo.innerText = "Garagem de: "
+    bemVindo.style.color = "#2D36EB"
+
+    let nome = document.createElement("output")
+    nome.innerText = ` ${nomeTitulo}`
+    nome.style.color = "#FF1A00"
+
+    welcome.appendChild(bemVindo)
+    bemVindo.appendChild(nome)
+}

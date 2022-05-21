@@ -39,4 +39,9 @@ body{
     justify-content: center;
     align-items: center;
 }
-
+.welcome{
+    margin-right: 50px;
+}
+.aNome{
+    color:blue;
+}

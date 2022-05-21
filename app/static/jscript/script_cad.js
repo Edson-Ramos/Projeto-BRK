@@ -100,3 +100,20 @@ function load(){
     localStorage.removeItem("id")
     window.location.href = "/show_room";
 }
+
+function apresentacao(){
+    let nomeTitulo = localStorage.getItem("nome")
+    let welcome = document.querySelector(".welcome")
+    let nomeCli = document.querySelector(".nomeCli")
+    
+    let bemVindo = document.createElement("output")
+    bemVindo.innerText = "Garagem de: "
+    bemVindo.style.color = "#2D36EB"
+
+    let nome = document.createElement("output")
+    nome.innerText = ` ${nomeTitulo}`
+    nome.style.color = "#FF1A00"
+
+    welcome.appendChild(bemVindo)
+    bemVindo.appendChild(nome)
+}

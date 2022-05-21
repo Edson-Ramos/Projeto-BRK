@@ -13,11 +13,13 @@ def login(login: str, senha: str):
         login_db = usuario.get_login()
         senha_db = usuario.get_senha()
         id_db = usuario.get_id()
+        nome_db = usuario.get_nome()
 
         if (login == login_db and senha == senha_db):
             access_token = create_access_token(identity=login)
             token = {'access_token':access_token,
-                    'id': id_db}
+                    'id': id_db,
+                    'nome': nome_db}
             return token
     return None
     
