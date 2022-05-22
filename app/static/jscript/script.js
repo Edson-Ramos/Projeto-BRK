@@ -98,10 +98,8 @@ function cadastro(){
             if(resposta.status == 200)
                 return success()
             else
-                return resposta.text()
-        })
-        .then(function(error){
-            erro_cadastro(error)
+                msg = "erro ao Cadastrar!"
+                return erro_cadastro(msg)
         })
     }    
 }

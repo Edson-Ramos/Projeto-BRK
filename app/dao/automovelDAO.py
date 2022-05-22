@@ -20,7 +20,7 @@ def get_automovel_by_placa(automovel: Automovel):
 
 def get_automovel_by_usuario(automovel: Automovel):
     try:
-        sql_query = """SELECT * FROM `automovel` WHERE id_usuario = %s;"""%automovel.get_id_usuario()
+        sql_query = """SELECT * FROM automovel WHERE id_usuario = %s;"""%automovel.get_id_usuario()
         cursor.execute(sql_query)
         result = cursor.fetchall()
         retorno = []
@@ -33,7 +33,7 @@ def get_automovel_by_usuario(automovel: Automovel):
 
 def insert_automovel(automovel: Automovel):
     try:
-        sql_query = """INSERT INTO `automovel`(id_usuario, ano_fab, placa, modelo, cor) VALUES (%s,%s,%s,%s,%s)"""
+        sql_query = """INSERT INTO automovel (id_usuario, ano_fab, placa, modelo, cor) VALUES (%s,%s,%s,%s,%s)"""
         tuple = (automovel.get_id_usuario(), automovel.get_ano_fab(), automovel.get_placa(), automovel.get_modelo(), automovel.get_cor())
         cursor.execute(sql_query, tuple)
         connection.commit()

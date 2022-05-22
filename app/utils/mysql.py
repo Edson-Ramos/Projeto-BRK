@@ -16,8 +16,8 @@ class MysqlConnect:
                 logger.debug("Conectado ao Servidor MySQL Versao", db_info)
                 
             else:         
-                self.connection = mysql.connector.connect(host=os.getenv('HOST', 'localhost'),
-                                                        user=os.getenv('USER', 'root'), 
+                self.connection = mysql.connector.connect(host=os.getenv('HOST','localhost'),
+                                                        user=os.getenv('USER','root'), 
                                                         password=os.getenv('PASSWORD',''), 
                                                         database=os.getenv('DATABASE','db_brk'))
 

@@ -1,4 +1,3 @@
-from traceback import print_tb
 from loguru import logger
 from model import Usuario
 from dao import *
@@ -6,7 +5,7 @@ from flask_jwt_extended import create_access_token
 import hashlib
 
 def login(login: str, senha: str):
-    senha = hashlib.sha256(bytes(senha, "UTF-8")).hexdigest()
+    #senha = hashlib.sha256(bytes(senha, "UTF-8")).hexdigest()
     usuario_consulta = Usuario(login=login)     
 
     for usuario in get_usuario_by_login(usuario_consulta):
@@ -24,9 +23,9 @@ def login(login: str, senha: str):
     return None
     
 def cadastrar_usuario(nome: str, email: str, data_nasc: str, tel: str, login: str, senha: str):
-    
-    senha = hashlib.sha256(bytes(senha, "UTF-8")).hexdigest()
-    usuario = Usuario(nome=nome, email=email, data_nasc=data_nasc, tel=tel, login=login, senha=senha)
+   # senha = hashlib.sha256(bytes(senha, "UTF-8")).hexdigest()   
+    usuario = Usuario(nome=nome, email=email, data_nasc=data_nasc, tel=tel, login=login, senha=senha) 
+
     try:
         if (len(get_usuario_by_login(usuario)) > 0):
             return 'Login já existe'

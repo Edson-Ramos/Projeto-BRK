@@ -36,6 +36,6 @@ def conf_usuario(app):
             
             return "Usuário cadastrado com sucesso!"
         except Exception as e:
-            logger.error
+            logger.error(e)
 
     
