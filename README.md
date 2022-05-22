@@ -12,3 +12,13 @@
 7. Mysql
 
 
+## **Passo a Passo** 
+
+###Para execução do projeto de aplicação web foi utilizado os seguintes programas:
+1.	Vscode
+2.	Xampp
+###Linguagens utilizadas foram:
+1.	Html/css
+2.	Java Script
+3.	Python/flask
+4.	Mysql
